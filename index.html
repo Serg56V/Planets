@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Космос</title>
+
+    <style>
+        body {
+            background: url(images/fon2.jpg) no-repeat;
+            position: relative;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {color: rgb(211, 180, 134); text-align: center;}
+        img {position: absolute}
+        #textName {
+            color: rgb(207, 179, 179); 
+            font-size: 50px;
+            padding-left: 40px;
+            position: absolute;
+            z-index: 2;}
+
+        .sun {bottom: -292px; left: 550px; width: 87px;}
+        .mercury {bottom: -285px; left: 495px; width: 30px;}
+        .venus {bottom: -240px; left: 722px; width: 50px;}
+        .earth {bottom: -431px; left: 518px; width: 79px;}
+        .mars {bottom: -315px; left: 294px; width: 65px;}
+        .jupiter {bottom: -721px; left: 53px; width: 232px;}
+        .saturn {bottom: -94px; left: 949px; width: 260px; transform: rotate(-40deg);}
+        .uranus {bottom: -280px; left: 82px; width: 90px;}
+        .pluton {bottom: -111px; left: 309px; width: 80px;}
+
+        #textInfo {
+            background-color: rgb(8, 39, 97);
+            border: 2px solid darkblue;
+            border-radius: 15px;
+            color: rgb(207, 179, 179);
+            display: none;
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            top: 520px;
+            left: 450px;
+            width: 300px;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Планеты солнечной системы</h1>
+
+        <div><img class="sun" onmouseover="NamePlanet('Солнце')" onmouseout="NamePlanet('')" 
+            onclick="InfoPlanet('Солнце - это звезда в центре Солнечная система . Это почти идеальная сфера из горячей плазмы , нагретая до накала за счет реакций ядерного синтеза в ее ядре, излучающая энергию в основном в виде света и инфракрасного излучения.')" src="images/planets/sun.png" alt="Солнце"></div>
+        <div><img class="mercury" onmouseover="NamePlanet('Меркурий')" onmouseout="NamePlanet('')" 
+            onclick="InfoPlanet('Мерку́рий — ближайшая к Солнцу планета Солнечной системы, наименьшая из планет земной группы. Названа в честь древнеримского бога торговли — быстрого Меркурия.')" src="images/planets/1.png" alt="Меркурий"></div>
+        <div><img class="venus" onmouseover="NamePlanet('Венера')" onmouseout="NamePlanet('')" 
+            onclick="InfoPlanet('Вене́ра — вторая по удалённости от Солнца и шестая по размеру планета Солнечной системы, наряду с Меркурием, Землёй и Марсом принадлежащая к семейству планет земной группы.')" src="images/planets/venus.png" alt="Венера"></div>
+        <div><img class="earth" onmouseover="NamePlanet('Земля')" onmouseout="NamePlanet('')" 
+            onclick="InfoPlanet('Земля́ — третья по удалённости от Солнца планета Солнечной системы. Самая плотная, пятая по диаметру и массе среди всех планет и крупнейшая среди планет земной группы.')" src="images/planets/earth.png" alt="Земля"></div>
+        <div><img class="mars" onmouseover="NamePlanet('Марс')" onmouseout="NamePlanet('')" 
+            onclick="InfoPlanet('Марс — четвёртая по удалённости от Солнца и седьмая по размеру планета Солнечной системы; масса планеты составляет 10,7 % массы Земли.')" src="images/planets/mars.png" alt="Марс"></div>
+        <div><img class="jupiter" onmouseover="NamePlanet('Юпитер')" onmouseout="NamePlanet('')" 
+            onclick="InfoPlanet('Юпи́тер — крупнейшая планета Солнечной системы, пятая по удалённости от Солнца. Наряду с Сатурном, Ураном и Нептуном, Юпитер классифицируется как газовый гигант.')" src="images/planets/jupiter.png" alt="Юпитер"></div>
+        <div><img class="saturn" onmouseover="NamePlanet('Сатурн')" onmouseout="NamePlanet('')" 
+            onclick="InfoPlanet('Сату́рн — шестая планета от Солнца и вторая по размерам планета в Солнечной системе после Юпитера.')" src="images/planets/saturn.png" alt="Сатурн"></div>
+        <div><img class="uranus" onmouseover="NamePlanet('Уран')" onmouseout="NamePlanet('')" 
+            onclick="InfoPlanet('Ура́н — планета Солнечной системы, седьмая по удалённости от Солнца, третья по диаметру и четвёртая по массе. Была открыта в 1781 году английским астрономом Уильямом Гершелем.')" src="images/planets/uranus.png" alt="Уран"></div>
+        <div><img class="pluton" onmouseover="NamePlanet('Нептун')" onmouseout="NamePlanet('')" 
+            onclick="InfoPlanet('Планета Нептун - восьмая по счёту в Солнечной системе и самая далёкая. Расстояние до Нептуна составляет более 30 а.е. и там был только один Вояджер-2.')" src="images/planets/pluton.png" alt="Плутон"></div>
+
+        <div id="textName"></div>
+        <div id="textInfo"></div>
+
+    </div>
+    
+
+    <script>
+        function NamePlanet(a) {
+            document.getElementById('textName').innerHTML=a;
+        }
+
+        function InfoPlanet(b) {
+            document.getElementById('textInfo').style.display='block';
+            document.getElementById('textInfo').innerHTML=b;
+        }
+    </script>
+</body>
+</html>
